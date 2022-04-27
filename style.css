@@ -1,0 +1,88 @@
+body {
+  width: 320px;
+  background: #fff;
+  margin: 20px;
+}
+
+hr {
+  background: #f8f8f8;
+  height: 2px;
+  border-style: none;
+  margin: 18px 0;
+}
+
+input {
+  border-left: 4px solid #6363fb;
+  border-bottom: 0;
+  display: block;
+  width: 100%;
+  outline: 0;
+  height: 40px;
+  border-top: 0;
+  border-right: 0;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  color: #212121;
+  border-bottom: 1px solid #f8f8f8;
+  padding: 10px 0;
+  font-size: 16px;
+  cursor: pointer;
+  word-wrap: break-word;
+  line-height: normal;
+}
+
+ul li:before {
+  content: "__";
+  padding: 5px;
+  font-size: 14px;
+  line-height: 8px;
+  vertical-align: top;
+}
+
+ul li:last-child {
+  border-bottom: none;
+}
+
+ul li.checked {
+  color: #008000;
+  cursor: pointer;
+  line-height: 15px;
+}
+
+ul li.checked:before {
+  content: "\2713";
+  padding: 0 5px;
+  font-size: 16px;
+  line-height: 14px;
+}
+
+ul li.checked:after {
+  content: "Remove this?";
+  color: #ff6347;
+  text-align: right;
+  padding: 0 10px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+}
