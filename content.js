@@ -1,41 +1,39 @@
-(() => {
-  const list = document.querySelector("#list"),
-    form = document.querySelector("form"),
-    item = document.querySelector("#item");
+function loadMyDodo() {
+  function store() {
+    window.localStorage.myItems = document.querySelector("#list").innerHTML;
+  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    form.addEventListener(
-      "submit",
-      (e) => {
+  function addItems() {
+    document.addEventListener("DOMContentLoaded", createList);
+    function createList() {
+      document.querySelector("form").addEventListener("submit", saveItem);
+      function saveItem(e) {
         e.preventDefault();
-        list.innerHTML += "<li>" + item.value + "</li>";
+        document.querySelector("#list").innerHTML +=
+          "<li>" + document.querySelector("#item").value + "</li>";
         store();
-        item.value = "";
-      },
-      false
-    );
+        document.querySelector("#item").value = "";
+      }
+      false;
 
-    list.addEventListener(
-      "click",
-      (e) => {
-        const t = e.target;
-        t.classList.contains("checked")
-          ? t.parentNode.removeChild(t)
-          : t.classList.add("checked");
+      document.querySelector("#list").addEventListener("click", clickItem);
+      function clickItem(e) {
+        e.target.classList.contains("checked")
+          ? e.target.parentNode.removeChild(e.target)
+          : e.target.classList.add("checked");
         store();
-      },
-      false
-    );
-  });
+      }
+      false;
+    }
+  }
 
-  const store = () => {
-    window.localStorage.myItems = list.innerHTML;
-  };
+  addItems();
 
-  const getValues = () => {
-    const storedValues = window.localStorage.myItems;
-    if (storedValues) list.innerHTML = storedValues;
-  };
-
+  function getValues() {
+    if (window.localStorage.myItems)
+      document.querySelector("#list").innerHTML = window.localStorage.myItems;
+  }
   getValues();
-})();
+}
+
+loadMyDodo();
